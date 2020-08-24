@@ -39,12 +39,18 @@ function Home() {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const response = await fetch('http://localhost:8080/world', {
+        const response = await fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: {
+                "Accept": "application/json",
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ post: post }),
+            // body: JSON.stringify({ post: post }),
+            body: JSON.stringify({
+                // name: name,
+                email: email,
+                password: password
+            })
         });
         const body = await response.text();
         setState({ responseToPost: body });
@@ -68,7 +74,7 @@ function Home() {
             {/* <p>{state.message}</p> */}
             <p>{state.response} </p>
             <form onSubmit={handleSubmit} action="/login" method="POST">
-                {/* <div>
+                <div>
                     <label for="email">Email: </label>
                     <input type="email" id="email" name="email" required
                         value={email}
@@ -79,15 +85,15 @@ function Home() {
                     <input type="password" id="password" name="password" required
                         value={password}
                         onChange={handlePassword} />
-                </div> */}
-                <input type="text"
+                </div>
+                {/* <input type="text"
                     value={post}
                     onChange={e => setPost(e.target.value)}
-                />
+                /> */}
                 <button type="submit">Login</button>
             </form>
             <Link to='/register'>Register</Link>
-            <p>{state.responseToPost}</p>
+            {/* <p>{state.responseToPost}</p> */}
         </div>
     )
 }
