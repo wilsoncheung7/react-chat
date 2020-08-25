@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { makeStyles, TextField, Button } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: '20%',
+        },
+    },
+}));
 
 function Register() {
+    const classes = useStyles();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [redirect, setRedirect] = useState(false);
 
     const handleName = e => {
         setName(e.target.value);
@@ -43,34 +53,54 @@ function Register() {
         return response;
     }
     return (
-        <div>
+        <div style={{ textAlign: 'center' }}>
             <h1>Register</h1>
-            <form onSubmit={handleSubmit} action="/register" method="POST">
+            <form className={classes.root} onSubmit={handleSubmit} action="/register" method="POST">
                 <div>
-                    <label for="name">Name: </label>
-                    <input type="text" id="name" name="name" required
+                    <TextField
+                        label='Name'
+                        type='text'
+                        id='name'
+                        name='name'
+                        variant='outlined'
+                        required
                         value={name}
                         onChange={handleName}
                     />
                 </div>
                 <div>
-                    <label for="email">Email: </label>
-                    <input type="email" id="email" name="email" required
+                    <TextField
+                        label='Email'
+                        type='email'
+                        id='email'
+                        name='email'
+                        variant='outlined'
+                        required
                         value={email}
                         onChange={handleEmail}
                     />
                 </div>
                 <div>
-                    <label for="password">Password: </label>
-                    <input type="password" id="password" name="password" required
+                    <TextField
+                        label='Password'
+                        type='password'
+                        id='password'
+                        name='password'
+                        variant='outlined'
+                        required
                         value={password}
                         onChange={handlePassword}
                     />
                 </div>
-                <button type="submit">Register</button>
+                <Button
+                 type="submit"
+                 variant='contained'
+                 color='primary' 
+                 >
+                     Register
+                </Button>
             </form>
-            <Link to='/'>Login</Link>
-            <p>{} </p>
+            <Link to='/'><Button varient='outlined'>Login</Button></Link>
         </div>
     )
 }

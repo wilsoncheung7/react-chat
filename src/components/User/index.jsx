@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from '@material-ui/core';
 
 function User() {
     const [name, setName] = useState('');
 
-    useEffect(()=>{
+    useEffect(() => {
         callApi()
-        .then(res => setName(res.express))
-        .catch(err => console.log(err));
+            .then(res => setName(res.express))
+            .catch(err => console.log(err));
     })
 
     const callApi = async () => {
@@ -19,7 +20,12 @@ function User() {
         <div>
             <p>{name} </p>
             <form action="/logout?_method=DELETE" method="POST">
-                <button type="submit">Log Out</button>
+                <Button
+                    variant='outlined'
+                    type="submit"
+                >
+                    Log Out
+                </Button>
             </form>
         </div>
     )
