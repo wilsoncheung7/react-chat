@@ -8,7 +8,8 @@ function App() {
   return (
     <React.Fragment>
       <Switch>
-        <Route path='/login' exact component={Login} />
+        <Route path='/' exact component={Login} />
+        {/* <Route path='/login' component={Login} /> */}
         <Route path='/register' component={Register} />
         <Route path='/user' component={User} />
       </Switch>
