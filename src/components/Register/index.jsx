@@ -93,14 +93,16 @@ function Register() {
                     />
                 </div>
                 <Button
-                 type="submit"
-                 variant='contained'
-                 color='primary' 
-                 >
-                     Register
+                    type="submit"
+                    variant='contained'
+                    color='primary'
+                >
+                    Register
                 </Button>
             </form>
-            <Link to='/'><Button varient='outlined'>Login</Button></Link>
+            <Link to='/' style={{ textDecoration: 'none' }}>
+                <Button varient='outlined'>Back to Login</Button>
+            </Link>
         </div>
     )
 }

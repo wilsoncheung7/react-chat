@@ -105,7 +105,9 @@ function Home() {
                     Login
                 </Button>
             </form>
-            <Link to='/register'><Button varient='outlined'>Register</Button></Link>
+            <Link to='/register' style={{ textDecoration: 'none' }}>
+                <Button varient='outlined'>Register</Button>
+            </Link>
             {/* <p>{state.responseToPost}</p> */}
         </div>
     )
