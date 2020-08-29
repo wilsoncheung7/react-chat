@@ -9,7 +9,7 @@ function App() {
     <React.Fragment>
       <Switch>
         <Route path='/' exact component={Login} />
-        {/* <Route path='/login' component={Login} /> */}
+        <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route path='/user' component={User} />
       </Switch>

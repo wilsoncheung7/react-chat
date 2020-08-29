@@ -44,6 +44,7 @@ function Home() {
                 "Accept": "application/json",
                 'Content-Type': 'application/json',
             },
+            credentials: 'include',
             // body: JSON.stringify({ post: post }),
             body: JSON.stringify({
                 // name: name,
@@ -62,7 +63,7 @@ function Home() {
     const handlePassword = e => {
         setPassword(e.target.value);
     }
-    console.log(state.responseToPost)
+    // console.log(state.responseToPost)
 
     return (
         <div className="App">

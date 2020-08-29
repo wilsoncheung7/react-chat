@@ -6,9 +6,13 @@ function User() {
 
     useEffect(() => {
         async function fetchNode() {
-            fetch('http://localhost:8080/name')
+            const response = await fetch('http://localhost:8080/name')
                 .then(res => res.text())
-                .then(res => setName(res));
+                .then(res => {
+                    setName(res);
+                    console.log(res);
+                });
+            return response;
         }
         fetchNode();
 
