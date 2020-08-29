@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@material-ui/core';
+import './room.scss';
 
 function User() {
     const [name, setName] = useState('');
@@ -42,6 +43,11 @@ function User() {
                 >
                     Log Out
                 </Button>
+            </form>
+            <div id="message-container"></div>
+            <form id="send-container">
+                <input type="text" id="message-input" />
+                <button type="submit" id="send-button">Send</button>
             </form>
         </div>
     )
