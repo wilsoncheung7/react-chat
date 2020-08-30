@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '@material-ui/core';
+import { makeStyles, Button, AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 import './room.scss';
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    title: {
+        flexGrow: 1,
+    },
+}))
 
 function User() {
     const [name, setName] = useState('');
@@ -33,17 +46,32 @@ function User() {
     // }
     console.log(name);
 
+    const classes = useStyles();
+
     return (
         <div>
-            <p>{name} </p>
-            <form action="/logout?_method=DELETE" method="POST">
-                <Button
-                    variant='outlined'
-                    type="submit"
-                >
-                    Log Out
+            <div className={classes.root} >
+                <AppBar position='static'>
+                    <Toolbar>
+                        {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                            <MenuIcon />
+                        </IconButton> */}
+                        <Typography variant="h6" className={classes.title}>
+                            {name}
+                        </Typography>
+                        <form action="/logout?_method=DELETE" method="POST">
+                            <Button
+                                color='inherit'
+                                variant='outlined'
+                                type="submit"
+                            >
+                                Log Out
                 </Button>
-            </form>
+                        </form>
+                    </Toolbar>
+                </AppBar>
+            </div>
+
             <div id="message-container"></div>
             <form id="send-container">
                 <input type="text" id="message-input" />
