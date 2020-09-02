@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, Button, AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles, Button, AppBar, Toolbar, Typography } from '@material-ui/core';
 import './room.scss';
 
 const useStyles = makeStyles(theme => ({
